@@ -1,22 +1,16 @@
-name: FTP Deployment
-
-on:
-  push:
-    branches:
-      - master
-
+on: push
+name: 🚀 Deploy website on push
 jobs:
-  deploy:
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
-
     steps:
-
     - name: 🚚 Get latest code
       uses: actions/checkout@v4
     
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.6
-        with:
+      with:
           server: hosting190129.ae89d.netcup.net
           port: 22
           username: ${{ secrets.FTP_USERNAME }}
